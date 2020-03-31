@@ -30,9 +30,14 @@ double PID::UpdateError(double cte) {
     i_error += cte;
 }
 
-double PID::TotalError() {
+double PID::TotalCorrection() {
     return -Kp * p_error - Kd * d_error - Ki * i_error;
 }
 
 double PID::Steer() {
+    double corr = TotalCorrection();
+    if (corr > 1) corr = 1;
+    if (corr < -1) corr = 1;
+
+    return corr;
 }

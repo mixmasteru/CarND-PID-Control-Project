@@ -25,12 +25,9 @@ public:
      */
     double UpdateError(double cte);
 
-    /**
-     * Calculate the total PID error.
-     * @output The total PID error
-     */
-    double TotalError();
 
+
+    double Steer();
 
 private:
     /**
@@ -54,7 +51,11 @@ private:
     double prev_cte;
     double diff_cte;
 
-    double Steer();
+    /**
+     * Calculate the total PID correction.
+     * @output The total PID correction
+     */
+    double TotalCorrection();
 };
 
 #endif  // PID_H
