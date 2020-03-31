@@ -1,6 +1,47 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
+# Rubic
+
+
+## The effect each of the P, I, D components had in your implementation.
+
+A PID (proportional integral derivative) controller uses a control loop feedback mechanism to correct a value.
+It constantly takes an error (difference between actual value and target value) to calculate a correction value.
+This correction is feed in the system, makes changes to it and the error is measured again.  
+
+
+### P - proportional
+- the error is taken as a inverse proportional correction for the target value
+- the (negative) p factor is multiplied with the error  
+- the result will be used as correction
+
+![p](img/p.png)
+
+### D - derivative
+- the derivative part takes the correction speed of the change the into account
+- its helps to damp the oscillation 
+- its also a factor in the overall control function
+
+![p](img/pd.png)
+
+### I - integral
+- the I part tracks the error over time
+- if there is a bias in the system this can be balanced out
+- its multiplied with the p and d
+- its normally quit small compared to p and d
+
+![pid](img/pid.png)
+
+
+### PID 
+All components in comparision. PD looks better in this case because there is no bias in this example.
+![p](img/all.png)
+
+## Describe how the final hyperparameters were chosen.
+
+I did not use any method but manually playing with the parameters.
+
 ---
 
 ## Dependencies
